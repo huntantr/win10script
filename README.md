@@ -3,7 +3,9 @@ This is the Ultimate Windows 10 Script from a creation from multiple debloat scr
 
 This version contains my custom changes.  
 TO DO:  
-[ ] enable reg backup: https://github.com/ChrisTitusTech/win10RegistryBackup
+[x] enable reg backup: https://github.com/ChrisTitusTech/win10RegistryBackup
+[x] set security and feature update delay
+[ ] sort functions by system and user - this will allow for only user changes to be run for other user profiles
 
 ## My Additions
 

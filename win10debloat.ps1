@@ -21,10 +21,11 @@
 #	- Enable Registry backup
 #
 ##########
+
 # Default preset
 $tweaks = @(
 	### Require administrator privileges ###
-	"RequireAdmin",
+	"RequireAdmin",    # will set $RunningAsAdmin to true if running as admin. Function currently still exits.
 
 	### External Program Setup
 	"InstallTitusProgs", #REQUIRED FOR OTHER PROGRAM INSTALLS!
@@ -2472,6 +2473,7 @@ Function UnpinTaskbarIcons {
 Function RequireAdmin {
 	If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
 		Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`" $PSCommandArgs" -WorkingDirectory $pwd -Verb RunAs
+		$RunningAsAdmin = $true
 		Exit
 	}
 }

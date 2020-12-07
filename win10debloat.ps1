@@ -51,7 +51,7 @@ $tweaks-admin = @(
 
 	### Security Tweaks ###
 	#"SetUACLow",                  # "SetUACHigh",
-	"SetSecurityAndFeatureUpdatesDelay",
+	"SetSecurityAndFeatureUpdatesDelay",   #CUSTOM
 	"EnableRegistryBackup",        # "DisableRegistryBackup",
 	# "EnableSharingMappedDrives",  # "DisableSharingMappedDrives",
 	# "DisableAdminShares",           # "EnableAdminShares",
@@ -605,6 +605,7 @@ Function SetSecurityAndFeatureUpdatesDelay {
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" -Name "BranchReadinessLevel" -Type DWord -Value 20
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" -Name "DeferFeatureUpdatesPeriodInDays" -Type DWord -Value 365
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" -Name "DeferQualityUpdatesPeriodInDays" -Type DWord -Value 6
+	Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Psched" -Name "NonBestEffortLimit" -Type DWord -Value 0
 }
 
 # Enables Regiistry Backup
